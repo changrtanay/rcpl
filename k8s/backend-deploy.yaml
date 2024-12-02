@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rcpl-backend  
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rcpl-backend
+  template:
+    metadata:
+      labels:
+        app: rcpl-backend
+    spec:
+      containers:
+      - name: rcpl-backend
+        image: changrtanay/rcpl:backend
+        ports:
+        - containerPort: 8080

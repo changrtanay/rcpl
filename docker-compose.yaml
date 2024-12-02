@@ -1,0 +1,102 @@
+# Telling docker-compose to build the client and server images and run them in containers.
+
+services:
+  backend:
+    image: changrtanay/rcpl:backend
+    # Giving the container a name.
+    container_name: backendapp_c
+    ports:
+      - "8080:8080"
+    networks:
+      - mern_network
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # Telling docker-compose to build the frontend image using the Dockerfile in the frontend directory.
+  frontend:
+    image: changrtanay/rcpl:frontend
+    # Giving the container a name.
+    container_name: frontendapp_c
+    # Mapping the port 3000 on the host machine to the port 3000 on the container.
+    ports:
+      - "3000:3000"  
+    networks:
+      - mern_network
+    # Mapping the client directory on the host machine to the /app directory on the container.
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    # Allows you to run container in detached mode.
+    stdin_open: true
+    tty: true
+
+  mongodb:
+    image: mongo:latest  
+    ports:
+      - "27017:27017"  
+    networks:
+      - mern_network
+    volumes:
+      - mongo-data:/data/db  
+
+networks:
+  mern_network:
+    driver: bridge 
+
+volumes:
+  mongo-data:
+    driver: local  # Persist MongoDB data locally
+
+
+# cd backend 
+# docker build -t changrtanay/rcpl:backend .
+# cd ../frontend
+# docker build -t changrtanay/rcpl:frontend .
+# cd ..
+
+# docker-compose up -d
+# docker-compose ps
+# docker-compose down
+
+# docker login
+# docker push changrtanay/rcpl:backend
+# docker push changrtanay/rcpl:frontend
+
+
+
+# docker pull rakeshpotnuru/productivity-app-demo:client
+
+# docker tag rcpl-frontend changrtanay/rcpl:frontend
+# docker tag rcpl-backend changrtanay/rcpl:backend
+
+
+
+# docker network create rcpl-network
+# docker run --name mongodb_c -d -p 27017:27017 --network rcpl-network -v ~/opt/data:/data/db mongo:latest
+# docker network connect rcpl-network mongodb_c (not required)
+
+# docker run --name backendapp_c -p 8080:8080 --network rcpl-network -d changrtanay/rcpl:backend 
+# nodemon -L index.js # Hot Reloading
+# docker run --name backendapp_c -p 8080:8080 --network rcpl-network -v D:\Files\html\rcpl\backend:/app -v /app/node_modules changrtanay/rcpl:backend
+
+# docker run --name frontendapp_c -p 3000:3000 -d changrtanay/rcpl:frontend
+# docker run --name frontendapp_c -p 3000:3000 -v D:\Files\html\rcpl\frontend:/app -v /app/node_modules changrtanay/rcpl:frontend # to reflect changes
+
+# docker stop CONTAINER_NAME # stops the running container
+# docker start CONTAINER_NAME # starts the container (Make sure a container is created first)
+
+
+
+# docker-compose up -d
+# docker-compose up --build
+# docker-compose up -d -build
+# docker-compose ps
+# docker-compose logs -f frontend
+# docker-compose logs -f backend
+# docker-compose exec backendapp_c bash
+# docker-compose exec frontendapp_c bash
+# docker-compose exec mongodb bash
+# docker-compose down

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rcpl-frontend
+  name: rcpl-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rcpl-frontend
+  template:
+    metadata:
+      labels:
+        app: rcpl-frontend
+    spec:
+      containers:
+      - image: changrtanay/rcpl:backend
+        name: rcpl-frontend
+        ports:
+        - containerPort: 3000

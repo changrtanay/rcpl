@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rcpl-frontend
+spec:
+  selector:
+    app: rcpl-frontend
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
