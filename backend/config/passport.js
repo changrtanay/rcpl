@@ -39,6 +39,7 @@ const passportConfig = (passport) => {
           const tokenOption = {
             httpOnly: true,
             secure: true, // or false if you are not using https
+            sameSite: "none",
           };
 
           return done(null, { user, token, tokenOption });
