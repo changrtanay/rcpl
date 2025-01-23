@@ -43,6 +43,16 @@ function App() {
   useEffect(() => {
     fetchUserDetails();
     fetchCartProductsCount();
+    // Check if the script is already added
+    if (!document.querySelector(`script[src="https://app.fastbots.ai/embed.js"]`)) {
+      const script = document.createElement("script");
+      script.defer = true;
+      script.src = "https://app.fastbots.ai/embed.js";
+      script.setAttribute("data-bot-id", process.env.REACT_APP_CHATBOT_ID);
+      document.body.appendChild(script);
+  
+      console.log("Chatbot script added");
+      };
   }, []);
 
   return (
