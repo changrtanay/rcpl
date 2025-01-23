@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   let handleOnFb = () => {
@@ -8,6 +9,9 @@ const Footer = () => {
   };
   let handleOnInsta = () => {
     window.open(`https://www.instagram.com/svetibyrajivcreation/`);
+  };
+  let handleOnAIBot = () => {
+    window.open(`https://app.fastbots.ai/embed/${process.env.REACT_APP_FASTBOT_ID}`);
   };
   return (
     <footer className="bg-red-900 text-white">
@@ -30,9 +34,11 @@ const Footer = () => {
           © 2024 Rajiv Creation Pvt. Ltd. All rights reserved.
         </div>
 
-        <div className="sm:mt-6 mt-36 text-right ">
-        {/* <p className="mt-0.5">(033) 22741685</p> */}
-          <p className="mt-1">rajivcreationkol10@gmail.com </p>
+        <div className="sm:mt-1 mt-36 text-right ">
+        <button onClick={handleOnAIBot} className="underline">
+              AI Bot
+            </button>
+        <p className="mt-">rajivcreationkol10@gmail.com </p>
           <p>We deliver all over India! </p>
           <div className="flex gap-0.5 text-lg justify-end pt-1.5">
             <button onClick={handleOnFb}>

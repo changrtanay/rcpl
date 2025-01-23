@@ -9,6 +9,7 @@ import summaryApi from "./common";
 import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
+import FastBot from "./components/FastBot";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,15 @@ function App() {
   useEffect(() => {
     fetchUserDetails();
     fetchCartProductsCount();
+      // if (!document.querySelector(`script[src="https://app.fastbots.ai/embed.js"]`)) {
+      //   const script = document.createElement("script");
+      //   script.defer = true;
+      //   script.src = "https://app.fastbots.ai/embed.js";
+      //   script.setAttribute("data-bot-id", process.env.REACT_APP_FASTBOT_ID);
+      //   document.body.appendChild(script);
+  
+      //   console.log("Chatbot script added");
+      // }
   }, []);
 
   return (
@@ -58,6 +68,7 @@ function App() {
       <main className="lg:min-h-[calc(100vh-50px)] min-h-[calc(100vh-120px)] pt-16">
         <Outlet />
       </main>
+      {/* <FastBot /> */}
       <Footer />
     </Context.Provider>
   );
