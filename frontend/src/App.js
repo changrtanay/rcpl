@@ -48,7 +48,7 @@ function App() {
       const script = document.createElement("script");
       script.defer = true;
       script.src = "https://app.fastbots.ai/embed.js";
-      script.setAttribute("data-bot-id", process.env.REACT_APP_CHATBOT_ID);
+      script.setAttribute("data-bot-id", process.env.REACT_APP_FASTBOT_ID);
       document.body.appendChild(script);
   
       console.log("Chatbot script added");
