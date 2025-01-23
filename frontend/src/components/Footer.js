@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         <div className="sm:mt-1 mt-36 text-right ">
-        <button onClick={handleOnAIBot} className="underline">
+        <button onClick={handleOnAIBot} className="underline font-bold">
               AI Bot
             </button>
         <p className="mt-">rajivcreationkol10@gmail.com </p>
