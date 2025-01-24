@@ -14,7 +14,7 @@ const Footer = () => {
     window.open(`https://app.fastbots.ai/embed/${process.env.REACT_APP_FASTBOT_ID}`);
   };
   return (
-    <footer className="bg-red-900 text-white">
+    <footer className="bg-red-900 text-white relative z-60">
       <div className="container mx-auto p-4 flex justify-between">
         <div>
           <p className="font-semibold text-2xl">Rajiv Creation Pvt Ltd.</p>

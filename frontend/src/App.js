@@ -10,6 +10,7 @@ import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
 import FastBot from "./components/FastBot";
+import FastBotButton from "./components/FastBotButton";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ function App() {
       </main>
       {/* <FastBot /> */}
       <Footer />
+      <FastBotButton />
     </Context.Provider>
   );
 }
