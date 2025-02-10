@@ -34,31 +34,26 @@ A modern fashion eCommerce platform built using React, MongoDB, Express, Stripe,
 - **Email Services**: Nodemailer
 - **Containerization**: Docker
 
-## Installation
+### Installation
 1. Clone the repository:
-   ```sh
+   ```bash
    git clone https://github.com/changrtanay/rcpl.git
    cd rcpl
    ```
 2. Install dependencies:
-   ```sh
+   ```bash
    npm install
    ```
-3. Set up environment variables in a `.env` file:
-   ```env
-   MONGO_URI=your_mongo_db_connection_string
-   STRIPE_SECRET=your_stripe_secret_key
-   GOOGLE_CLIENT_ID=your_google_client_id
-   GOOGLE_CLIENT_SECRET=your_google_client_secret
+3. Start the development server:
+   ```bash
+   npm run dev
    ```
-4. Run the application:
-   ```sh
-   npm start
-   ```
-5. To run using Docker:
+   or
+   To run using Docker:
    ```sh
    docker-compose up --build
    ```
+5. Open your browser and navigate to `http://localhost:3000`
 
 ## Contributing
 Feel free to open issues or submit pull requests to enhance the platform.
