@@ -37,8 +37,8 @@ A modern fashion eCommerce platform built using React, MongoDB, Express, Stripe,
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo.git
-   cd your-repo
+   git clone https://github.com/changrtanay/rcpl.git
+   cd rcpl
    ```
 2. Install dependencies:
    ```sh
