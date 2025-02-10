@@ -48,12 +48,12 @@ A modern fashion eCommerce platform built using React, MongoDB, Express, Stripe,
    ```bash
    npm run dev
    ```
-   or
+   or;
    To run using Docker:
    ```sh
    docker-compose up --build
    ```
-5. Open your browser and navigate to `http://localhost:3000`
+4. Open your browser and navigate to `http://localhost:3000`
 
 ## Contributing
 Feel free to open issues or submit pull requests to enhance the platform.
